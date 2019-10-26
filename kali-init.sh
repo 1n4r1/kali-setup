@@ -4,62 +4,63 @@ cd
 
 # updated for kali linux 2018.4 
 
+# checking permission
 if [ ${EUID:-${UID}} != 0 ]; then
     echo 'exec as root user!'
     exit 1
 fi
 
-# upload packages
+## initial setup
+# upload packages information
 dpkg --add-architecture i386
 apt-get -y update
 apt-get -y upgrade
 
-# install packages
+# auto pass interactive installer
 export DEBIAN_FRONTEND=noninteractive
+
+## installing packages
+# installing applications
 apt-get -y install \
-        libelf-dev \
-        gconf-service \
-        gconf2-common \
-        libgconf-2-4 \ 
-        fontconfig-config \
         task-japanese \
         task-japanese-desktop \
         ibus-anthy \
-        libappindicator1 \
-        libappindicator3-1 \
-        git \
-        apt-transport-https \
+        telegram-desktop \
+        gnome-screenshot \
         openvas \
+        git \
         virtualbox \
         virtualbox-guest-x11 \
         virtualbox-ext-pack \
         vagrant \
-        packer \
+        brasero \
+        gobuster \
+        seclists \
+        wine32 \
+        flake8
+
+# installing libraries
+apt-get -y install \
+        libelf-dev \
+        gconf-service \
+        gconf2-common \
+        libgconf-2-4 \
+        fontconfig-config \
+        libappindicator1 \
+        libappindicator3-1 \
+        apt-transport-https \
         libsqlite3-dev \
         libncurses5-dev \
         alacarte \
-        brasero \
-        gobuster \
-        flake8 \
         php-curl \
-        seclists \
-        wine32 \
-        dbeaver \
         gconf2 \
         gvfs-bin \
-        telegram-desktop \
-        gnome-screenshot \
         pepperflashplugin-nonfree  # flash player
 
 # install skype
 wget https://repo.skype.com/latest/skypeforlinux-64.deb
 dpkg -i skypeforlinux-64.deb
 rm skypeforlinux-64.deb
-
-# set case ignore
-cat << EOF > ~/.inputrc
-set completion-ignore-case on
-EOF
 
 # audio configuration
 apt-get -y install alsa-tools \
@@ -71,9 +72,17 @@ apt-get -y install alsa-tools \
                    kmix \
                    pulseaudio \
                    gnome-core
-# remove unneed packages
-apt autoremove -y
+
+## Other configurations
+# set case ignore
+cat << EOF > ~/.inputrc
+set completion-ignore-case on
+EOF
 
 # git configuration
 git config --global user.name "inar1"
 git config --global user.email "inar1@protonmail.com"
+
+## Finishing setup
+# remove unneed packages
+apt autoremove -y
