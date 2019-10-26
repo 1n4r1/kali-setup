@@ -52,7 +52,6 @@ apt-get -y install \
         pepperflashplugin-nonfree  # flash player
 
 # install skype
-curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
 wget https://repo.skype.com/latest/skypeforlinux-64.deb
 dpkg -i skypeforlinux-64.deb
 rm skypeforlinux-64.deb
