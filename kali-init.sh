@@ -74,9 +74,6 @@ apt-get -y install alsa-tools \
 # remove unneed packages
 apt autoremove -y
 
-# install python modules
-pip install pyinstaller
-
 # git configuration
 git config --global user.name "inar1"
 git config --global user.email "inar1@protonmail.com"
