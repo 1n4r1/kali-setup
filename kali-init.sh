@@ -16,39 +16,40 @@ apt-get -y upgrade
 
 # install packages
 export DEBIAN_FRONTEND=noninteractive
-apt-get -y install libelf-dev \
-		   gconf-service \
-		   gconf2-common \
-		   libgconf-2-4 \ 
-		   fontconfig-config \
-		   task-japanese \
-                   task-japanese-desktop \
-                   ibus-anthy \
-                   libappindicator1 \
-                   libappindicator3-1 \
-                   git \
-                   apt-transport-https \
-                   openvas \
-                   virtualbox \
-                   virtualbox-guest-x11 \
-                   virtualbox-ext-pack \
-                   vagrant \
-                   packer \
-                   libsqlite3-dev \
-                   libncurses5-dev \
-                   alacarte \
-                   brasero \
-                   gobuster \
-                   flake8 \
-                   php-curl \
-                   seclists \
-                   wine32 \
-                   dbeaver \
-                   gconf2 \
-		   gvfs-bin \
-		   telegram-desktop \
-		   gnome-screenshot \
-                   pepperflashplugin-nonfree  # flash player
+apt-get -y install \
+        libelf-dev \
+        gconf-service \
+        gconf2-common \
+        libgconf-2-4 \ 
+        fontconfig-config \
+        task-japanese \
+        task-japanese-desktop \
+        ibus-anthy \
+        libappindicator1 \
+        libappindicator3-1 \
+        git \
+        apt-transport-https \
+        openvas \
+        virtualbox \
+        virtualbox-guest-x11 \
+        virtualbox-ext-pack \
+        vagrant \
+        packer \
+        libsqlite3-dev \
+        libncurses5-dev \
+        alacarte \
+        brasero \
+        gobuster \
+        flake8 \
+        php-curl \
+        seclists \
+        wine32 \
+        dbeaver \
+        gconf2 \
+        gvfs-bin \
+        telegram-desktop \
+        gnome-screenshot \
+        pepperflashplugin-nonfree  # flash player
 
 # install skype
 curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - 
