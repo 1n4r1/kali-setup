@@ -2,7 +2,7 @@
 
 cd
 
-# updated for kali linux 2018.4 
+# updated for Linux kali 5.2.0-kali2-amd64
 
 # checking permission
 if [ ${EUID:-${UID}} != 0 ]; then
@@ -37,7 +37,8 @@ apt-get -y install \
         gobuster \
         seclists \
         wine32 \
-        flake8
+        flake8 \
+        python-pip
 
 # installing libraries
 apt-get -y install \
@@ -81,8 +82,13 @@ EOF
 
 # git configuration
 git config --global user.name "inar1"
-git config --global user.email "inar1@protonmail.com"
+git config --global core.editor vim
+
+# console language
+echo 'export LANG=en_US' >> ~/.bashrc
 
 ## Finishing setup
 # remove unneed packages
 apt autoremove -y
+
+echo -e "\n\n===== Don't forget reboot!! ====="
