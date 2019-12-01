@@ -11,6 +11,11 @@ if [ ${EUID:-${UID}} != 0 ]; then
 fi
 
 ## initial setup
+# installing repositories
+echo 'deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main' > /etc/apt/sources.list.d/slack.list
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list
+echo 'deb [arch=amd64] https://repo.skype.com/deb stable main' > /etc/apt/sources.list.d/skype-stable.list
+
 # upload packages information
 dpkg --add-architecture i386
 apt-get -y update
@@ -30,7 +35,6 @@ apt-get -y install \
         git \
         virtualbox \
         virtualbox-guest-x11 \
-	# virtualbox-ext-pack \
         vagrant \
         brasero \
         gobuster \
@@ -38,7 +42,10 @@ apt-get -y install \
         wine32 \
         flake8 \
         python-pip \
-        fcitx-mozc
+        fcitx-mozc \
+        slack-desktop \
+        google-chrome-stable \
+        skypeforlinux
 
 # installing libraries
 apt-get -y install \
@@ -52,16 +59,10 @@ apt-get -y install \
         apt-transport-https \
         libsqlite3-dev \
         libncurses5-dev \
-        alacarte \
         php-curl \
         gconf2 \
         gvfs-bin \
         pepperflashplugin-nonfree  # flash player
-
-# install skype
-wget https://repo.skype.com/latest/skypeforlinux-64.deb
-dpkg -i skypeforlinux-64.deb
-rm skypeforlinux-64.deb
 
 # audio configuration
 apt-get -y install alsa-tools \
@@ -73,6 +74,10 @@ apt-get -y install alsa-tools \
                    kmix \
                    pulseaudio \
                    gnome-core
+
+## uninstalling packages
+apt-get -y remove chromium \
+                  anthy
 
 ## Other configurations
 # set case ignore
