@@ -2,7 +2,7 @@
 
 cd
 
-# updated for Linux kali 5.2.0-kali2-amd64
+# updated for Linux kali 5.3.0-kali2-amd64
 
 # checking permission
 if [ ${EUID:-${UID}} != 0 ]; then
@@ -24,21 +24,21 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get -y install \
         task-japanese \
         task-japanese-desktop \
-        ibus-anthy \
         telegram-desktop \
         gnome-screenshot \
         openvas \
         git \
         virtualbox \
         virtualbox-guest-x11 \
-        virtualbox-ext-pack \
+	# virtualbox-ext-pack \
         vagrant \
         brasero \
         gobuster \
         seclists \
         wine32 \
         flake8 \
-        python-pip
+        python-pip \
+        fcitx-mozc
 
 # installing libraries
 apt-get -y install \
@@ -82,10 +82,8 @@ EOF
 
 # git configuration
 git config --global user.name "inar1"
+git config --global user.email inar1@protonmail.com
 git config --global core.editor vim
-
-# console language
-echo 'export LANG=en_US' >> ~/.bashrc
 
 ## Finishing setup
 # remove unneed packages
