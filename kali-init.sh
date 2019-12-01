@@ -90,6 +90,13 @@ git config --global user.name "inar1"
 git config --global user.email inar1@protonmail.com
 git config --global core.editor vim
 
+# setup aliases
+echo "alias vim='vim -b'" > ~/.bash_aliases
+
+# update bash configuration
+. ~/.bashrc
+
+
 ## Finishing setup
 # remove unneed packages
 apt autoremove -y
