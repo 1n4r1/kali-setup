@@ -35,17 +35,6 @@ apt-get -y install \
         python-pip \
         ibus-anthy
 
-# audio configuration
-apt-get -y install alsa-tools \
-                   alsa-tools-gui \
-                   alsa-utils \
-                   alsa-oss \
-                   alsamixergui \
-                   libalsaplayer0 \
-                   kmix \
-                   pulseaudio \
-                   gnome-core
-
 ## uninstalling packages
 apt-get -y remove chromium
 
