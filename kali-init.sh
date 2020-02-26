@@ -11,10 +11,6 @@ if [ ${EUID:-${UID}} != 0 ]; then
 fi
 
 ## initial setup
-# installing repositories
-echo 'deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main' > /etc/apt/sources.list.d/slack.list
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list
-
 # upload packages information
 dpkg --add-architecture i386
 apt-get -y update
