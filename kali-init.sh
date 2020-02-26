@@ -35,20 +35,6 @@ apt-get -y install \
         python-pip \
         ibus-anthy
 
-# installing libraries
-apt-get -y install \
-        libelf-dev \
-        gconf-service \
-        gconf2-common \
-        libgconf-2-4 \
-        fontconfig-config \
-        libappindicator1 \
-        libappindicator3-1 \
-        libsqlite3-dev \
-        libncurses5-dev \
-        gconf2 \
-        gvfs-bin \
-
 # audio configuration
 apt-get -y install alsa-tools \
                    alsa-tools-gui \
