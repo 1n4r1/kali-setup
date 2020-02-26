@@ -2,7 +2,7 @@
 
 cd
 
-# updated for Linux kali 5.3.0-kali2-amd64
+# for 5.2.9-2kali1 (2019-08-22)
 
 # checking permission
 if [ ${EUID:-${UID}} != 0 ]; then
@@ -14,12 +14,10 @@ fi
 # installing repositories
 echo 'deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main' > /etc/apt/sources.list.d/slack.list
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list
-echo 'deb [arch=amd64] https://repo.skype.com/deb stable main' > /etc/apt/sources.list.d/skype-stable.list
 
 # upload packages information
 dpkg --add-architecture i386
 apt-get -y update
-apt-get -y upgrade
 
 # auto pass interactive installer
 export DEBIAN_FRONTEND=noninteractive
@@ -27,12 +25,9 @@ export DEBIAN_FRONTEND=noninteractive
 ## installing packages
 # installing applications
 apt-get -y install \
-        task-japanese \
-        task-japanese-desktop \
         telegram-desktop \
         gnome-screenshot \
         openvas \
-        git \
         virtualbox \
         virtualbox-guest-x11 \
         vagrant \
@@ -42,10 +37,7 @@ apt-get -y install \
         wine32 \
         flake8 \
         python-pip \
-        fcitx-mozc \
-        slack-desktop \
-        google-chrome-stable \
-        skypeforlinux
+        ibus-anthy
 
 # installing libraries
 apt-get -y install \
@@ -56,13 +48,10 @@ apt-get -y install \
         fontconfig-config \
         libappindicator1 \
         libappindicator3-1 \
-        apt-transport-https \
         libsqlite3-dev \
         libncurses5-dev \
-        php-curl \
         gconf2 \
         gvfs-bin \
-        pepperflashplugin-nonfree  # flash player
 
 # audio configuration
 apt-get -y install alsa-tools \
@@ -76,8 +65,7 @@ apt-get -y install alsa-tools \
                    gnome-core
 
 ## uninstalling packages
-apt-get -y remove chromium \
-                  anthy
+apt-get -y remove chromium
 
 ## Other configurations
 # set case ignore
