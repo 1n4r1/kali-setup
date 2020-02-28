@@ -1,5 +1,6 @@
 #! /bin/bash
 
+set -eu
 cd
 
 # for 5.2.9-2kali1 (2019-08-22)
@@ -10,7 +11,7 @@ sudo dpkg --add-architecture i386
 sudo apt-get -y update
 
 # auto pass interactive installer
-sudo export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 
 ## installing packages
 # installing applications
