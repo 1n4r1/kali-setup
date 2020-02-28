@@ -4,23 +4,17 @@ cd
 
 # for 5.2.9-2kali1 (2019-08-22)
 
-# checking permission
-if [ ${EUID:-${UID}} != 0 ]; then
-    echo 'exec as root user!'
-    exit 1
-fi
-
 ## initial setup
 # upload packages information
-dpkg --add-architecture i386
-apt-get -y update
+sudo dpkg --add-architecture i386
+sudo apt-get -y update
 
 # auto pass interactive installer
-export DEBIAN_FRONTEND=noninteractive
+sudo export DEBIAN_FRONTEND=noninteractive
 
 ## installing packages
 # installing applications
-apt-get -y install \
+sudo apt-get -y install \
         telegram-desktop \
         gnome-screenshot \
         openvas \
@@ -37,7 +31,7 @@ apt-get -y install \
         shellcheck
 
 ## uninstalling packages
-apt-get -y remove chromium
+sudo apt-get -y remove chromium
 
 ## Other configurations
 # set case ignore
@@ -59,6 +53,6 @@ echo "alias vim='vim -b'" > ~/.bash_aliases
 
 ## Finishing setup
 # remove unneed packages
-apt autoremove -y
+sudo apt autoremove -y
 
 echo -e "\n\n===== Don't forget reboot!! ====="
