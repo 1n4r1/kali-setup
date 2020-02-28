@@ -33,7 +33,8 @@ apt-get -y install \
         wine32 \
         flake8 \
         python-pip \
-        ibus-anthy
+        ibus-anthy \
+        shellcheck
 
 ## uninstalling packages
 apt-get -y remove chromium
